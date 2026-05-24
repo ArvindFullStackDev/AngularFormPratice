@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col text-center">
+            <h2 class="text-center">User Data List</h2>
+        </div>
+
+        <div class="col text-end">
+            <button class="btn btn-primary mb-3"  [routerLink]="['/AddUser']"> >Add User</button>
+        </div>
+
+    </div>
+
+
+    <table class="table table-bordered">
+        <caption>List of users</caption>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Age</th>
+                <th scope="col">Address</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @for( user of UserList; track user.id)
+            {
+            <tr>
+                <td>{{user.Id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.address}}</td>
+            </tr>
+            }
+
+
+        </tbody>
+    </table>
+</div>
