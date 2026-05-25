@@ -25,4 +25,8 @@ export class UserService {
       return this.UserList;
   }
 
+  addUser(data: any) {
+    this.UserList.push(data);
+  }
+
 }
