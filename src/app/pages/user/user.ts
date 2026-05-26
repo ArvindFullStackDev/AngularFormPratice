@@ -1,34 +1,30 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../core/services/user-service';
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './user.html',
   styleUrl: './user.css',
 })
 export class User {
-  name: string = '';
-  Description: string = '';
 
-  constructor(
-    private userService: UserService,
-    private router: Router
-  ) {
+  constructor(private userService : UserService) { }
 
-  }
+  UserFormDetails = new FormGroup({
+    Id: new FormControl(),
+    name: new FormControl(),
+    email: new FormControl(),
+    age: new FormControl(),
+    address: new FormControl()
+  })
 
-  onSave(): void {
-    const newData = {
-      name: this.name,
-      Description: this.Description
-    };
+    onSubmit(){
+        this.userService.addUser(this.UserFormDetails.getRawValue());
+    }
 
-    // Add into JSON Array
-    this.userService.addUser(newData);
 
-    // Redirect to Grid
-    this.router.navigate(['/']);
-  }
+
+
 }
