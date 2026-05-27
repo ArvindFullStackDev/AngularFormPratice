@@ -7,14 +7,7 @@
 
     <form [formGroup]="UserFormDetails" (ngSubmit)="onSubmit()">
 
-      <div class="mb-3">
-
-        <label class="form-label">
-          Id
-        </label>
-        <input type="text" class="form-control" name="Id" placeholder="Enter Id" formControlName="Id">
-
-      </div>
+  
 
       <div class="mb-3">
 
@@ -51,6 +44,8 @@
         <input type="text" class="form-control" name="address" placeholder="Enter Address" formControlName="address">
 
       </div>
+
+      <button type="submit" class="btn btn-primary"> Submit </button>
 
     </form>
   </div>
